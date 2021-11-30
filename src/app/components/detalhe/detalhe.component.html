@@ -1,0 +1,27 @@
+ <div class="container-fluid"  *ngFor="let h of heroi | async ">
+  <div class="card" >
+    <img src="{{h.thumbnail.path}}.{{h.thumbnail.extension}}" alt="{{h.name }}">
+      <h5 class="card-title">{{h.name}}</h5>
+      <h6 class="card-text">{{h.description}}</h6>
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="col-md-3"  >
+        <label for="comics">Revistas:</label>
+        <p *ngFor="let c of h.comics.items "> {{c.name}}</p>
+      </div>
+      <div class="col-md-3" >
+        <label for="comics">Eventos:</label>
+        <p *ngFor="let c of h.events.items "> {{c.name}}</p>
+      </div>
+      <div class="col-md-3" >
+        <label for="comics">Series:</label>
+        <p *ngFor="let c of h.series.items "> {{c.name}}</p>
+      </div>
+      <div class="col-md-3" >
+        <label for="comics">Histórias:</label>
+        <p *ngFor="let c of h.stories.items "> {{c.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
