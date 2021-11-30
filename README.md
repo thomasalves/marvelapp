@@ -1,27 +1,27 @@
 # Marvelapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+Aplicativo desenvolvido em Angular utilizando a api da marvel como dados para fazer uma pagina com suas informações fornecidos pela API. Este site contém as seguintes funcionalidades:
 
-## Development server
+  - Campo de busca, onde você pode buscar o heroi pelo nome.
+  - Paginação, contendo 10 herois por pagina
+  - Pagina de detalhes de cada Heroi.
+  - Responsiidade
+  - Música  dos vingadores quando entrar no site.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Randerizando
 
-## Code scaffolding
+Para randerizar esse site precisa seguir os seguintes passos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Adquirir a autitivação da marvel no site deles https://developer.marvel.com/
+- Seguir as instruções do site para utilizar sua chaves
+- Clonar esse repositorio com seguinte comando:
+   
+       git clone https://github.com/thomasalves/marvelapp
+  
+- Baixar dependencias
 
-## Build
+        yarn install ou npm install
+- Adicionar sua public ket e hash no fonte localizado em shared/herois.service.ts
+- Iniciar servidor
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+      ng serve
