@@ -23,17 +23,17 @@
       <th  class="eventos" scope="col">Eventos</th>
     </tr>
   </thead>
-    <tbody *ngFor="let herois of allHerois | async | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
+    <tbody *ngFor="let herois of allHerois  | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
       <tr (click)="getDetalhe(herois.name)">
         <td class="nome">
          <img src="{{herois.thumbnail.path}}.{{herois.thumbnail.extension}}" alt="{{herois.name }}">
          {{ herois.name}}
         </td>
         <td class="series" >
-          <p *ngFor="let series of herois.series.items " > {{series.name}}</p>
+          <!-- <p *ngFor="let series of herois.series " > {{series.name}}</p> -->
         </td>
         <td class="eventos">
-          <p *ngFor="let event of herois.events.items" >{{event.name}}</p>
+          <!-- <p *ngFor="let event of herois.events" >{{event.name}}</p> -->
         </td>
       </tr>
     </tbody>

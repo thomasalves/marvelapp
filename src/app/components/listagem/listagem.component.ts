@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroisService } from './../../shared/herois.service';
+import { HeroisService } from '../../service/herois.service';
 import { Observable } from 'rxjs';
 
 import { Router } from '@angular/router';
+import { Heroi } from 'src/app/models/heroi.model';
 
 @Component({
   selector: 'app-listagem',
@@ -11,9 +12,9 @@ import { Router } from '@angular/router';
 })
 export class ListagemComponent implements OnInit {
 
-  [x: string]: any;
 
-  allHerois: Observable<any> | undefined;
+  allHerois: Heroi[] = [];
+  testeHeroi!: Heroi;
 
   todsoHerois!: Observable<any>;
 
@@ -28,15 +29,20 @@ export class ListagemComponent implements OnInit {
 
   getCharactersSearch(query: string): void {
     console.log(query)
-    this.allHerois = this.heroisService.getCharacterByName(query)
     console.log(this.allHerois)
+    // this.allHerois = this.heroisService.getCharacterByName(query)
 }
   getAllHerois() :void {
-    this.allHerois = this.heroisService.GetAll();
+    this.heroisService.GetAll().subscribe(data => {
+      this.allHerois = data.data.results;
+      console.log(this.allHerois)
+    })
+    // this.allHerois = this.heroisService.GetAll();
+    // console.log(this.allHerois)
   }
 
   getDetalhe(heroi: string): void {
-    this.router.navigate(['/detalhe', heroi],  { relativeTo: this.route })
+    this.router.navigate(['/detalhe', heroi])
   }
 
 }

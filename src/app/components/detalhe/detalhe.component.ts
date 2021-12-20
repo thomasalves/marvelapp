@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeroisService } from 'src/app/shared/herois.service';
+import { HeroisService } from 'src/app/service/herois.service';
 import { Observable } from 'rxjs';
 
 @Component({
