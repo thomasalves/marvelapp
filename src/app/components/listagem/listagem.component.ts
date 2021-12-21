@@ -14,7 +14,6 @@ export class ListagemComponent implements OnInit {
 
 
   allHerois: Heroi[] = [];
-  testeHeroi!: Heroi;
 
   todsoHerois!: Observable<any>;
 
@@ -31,15 +30,14 @@ export class ListagemComponent implements OnInit {
     console.log(query)
     console.log(this.allHerois)
     // this.allHerois = this.heroisService.getCharacterByName(query)
-}
+  }
   getAllHerois() :void {
     this.heroisService.GetAll().subscribe(data => {
       this.allHerois = data.data.results;
       console.log(this.allHerois)
     })
-    // this.allHerois = this.heroisService.GetAll();
-    // console.log(this.allHerois)
   }
+
 
   getDetalhe(heroi: string): void {
     this.router.navigate(['/detalhe', heroi])

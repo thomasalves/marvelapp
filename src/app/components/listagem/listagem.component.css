@@ -96,7 +96,7 @@ pagination-controls {
   margin-top: 20px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
   .series, .eventos {
     display: none;
   }

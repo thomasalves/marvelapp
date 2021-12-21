@@ -30,10 +30,10 @@
          {{ herois.name}}
         </td>
         <td class="series" >
-          <!-- <p *ngFor="let series of herois.series " > {{series.name}}</p> -->
+          <p *ngFor="let series of herois.series.items " > {{series.name}}</p>
         </td>
         <td class="eventos">
-          <!-- <p *ngFor="let event of herois.events" >{{event.name}}</p> -->
+          <p *ngFor="let event of herois.events.items" >{{event.name}}</p>
         </td>
       </tr>
     </tbody>

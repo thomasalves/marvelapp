@@ -1,5 +1,4 @@
 import { Api } from './../models/responseApi.model';
-import { Heroi } from '../models/heroi.model';
 import { Injectable } from '@angular/core';
 import { HttpClient} from  '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,7 +10,6 @@ import { map }from 'rxjs/operators';
 })
 export class HeroisService {
 
-  Herois: Heroi[] = [];
 
   PUBLIC_KEY = '38610a3dfe5d1bb4758924e29798a5fa';
   HASH = '78cc56b83e445fb309b64ef1db417783';
@@ -27,7 +25,7 @@ export class HeroisService {
 
  public getCharacterByName(name: string) {
     let requestUrl = this._marvelCharacterUrl + "?orderBy=name" + "&nameStartsWith=" + name + "&ts=1&apikey=" + this.PUBLIC_KEY+ "&hash=" + this.HASH;
-    return this.http.get<Heroi>(requestUrl)
-      .pipe(map((data): Heroi => data));
+    return this.http.get<Api>(requestUrl)
+      .pipe(map((data): Api => data));
 }
 }
