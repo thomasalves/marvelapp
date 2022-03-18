@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from  '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map }from 'rxjs/operators';
+import { environment } from '../../environments/environment'
 
 
 @Injectable({
@@ -10,21 +11,15 @@ import { map }from 'rxjs/operators';
 })
 export class HeroisService {
 
-
-  PUBLIC_KEY = '38610a3dfe5d1bb4758924e29798a5fa';
-  HASH = '78cc56b83e445fb309b64ef1db417783';
-  URL = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${this.PUBLIC_KEY}&hash=${this.HASH}`
-  private _marvelCharacterUrl: string = "https://gateway.marvel.com:443/v1/public/characters";
-
   constructor(private http: HttpClient) { }
 
  public  GetAll(): Observable<Api> {
-    return  this.http.get<Api>(this.URL)
+    return  this.http.get<Api>(`${environment.url}?ts=1&apikey=${environment.public_Key}&hash=${environment.hash}` )
       .pipe(map((data): Api => data))
   }
 
- public getCharacterByName(name: string) {
-    let requestUrl = this._marvelCharacterUrl + "?orderBy=name" + "&nameStartsWith=" + name + "&ts=1&apikey=" + this.PUBLIC_KEY+ "&hash=" + this.HASH;
+ public getCharacterByName(name: string) :Observable<Api> {
+    let requestUrl = `${environment.url}?orderBy=name&nameStartsWith=${name}&ts=1&apikey=${environment.public_Key}&hash=${environment.hash}`;
     return this.http.get<Api>(requestUrl)
       .pipe(map((data): Api => data));
 }

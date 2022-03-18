@@ -4,7 +4,7 @@ html, body { height: 100%;  }
 body {
   margin: 0;
   font-family:  PT Sans Caption;
-  background: #E5E5E5;
+  background: rgba(8,7,42,1);
 
 }
 @import "~bootstrap-icons/font/bootstrap-icons.css";

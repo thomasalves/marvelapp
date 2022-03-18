@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroisService } from '../../service/herois.service';
-import { Observable } from 'rxjs';
-
 import { Router } from '@angular/router';
 import { Heroi } from 'src/app/models/heroi.model';
 
@@ -12,13 +10,9 @@ import { Heroi } from 'src/app/models/heroi.model';
 })
 export class ListagemComponent implements OnInit {
 
-
   allHerois: Heroi[] = [];
 
-  todsoHerois!: Observable<any>;
-
   constructor(private heroisService: HeroisService, private router: Router) { }
-
 
   public paginaAtual = 1;
 
@@ -28,8 +22,10 @@ export class ListagemComponent implements OnInit {
 
   getCharactersSearch(query: string): void {
     console.log(query)
-    console.log(this.allHerois)
-    // this.allHerois = this.heroisService.getCharacterByName(query)
+    this.heroisService.getCharacterByName(query).subscribe(resp => {
+      console.log(resp.data.results)
+      this.allHerois = resp.data.results
+    })
   }
   getAllHerois() :void {
     this.heroisService.GetAll().subscribe(data => {
