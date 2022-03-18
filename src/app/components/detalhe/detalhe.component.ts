@@ -19,7 +19,6 @@ export class DetalheComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroisService.getCharacterByName(this.heroisName).subscribe(detalhe =>{
-      console.log(detalhe.data.results)
       this.heroi = detalhe.data.results
     })
   }

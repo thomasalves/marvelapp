@@ -21,16 +21,13 @@ export class ListagemComponent implements OnInit {
   }
 
   getCharactersSearch(query: string): void {
-    console.log(query)
     this.heroisService.getCharacterByName(query).subscribe(resp => {
-      console.log(resp.data.results)
       this.allHerois = resp.data.results
     })
   }
   getAllHerois() :void {
     this.heroisService.GetAll().subscribe(data => {
       this.allHerois = data.data.results;
-      console.log(this.allHerois)
     })
   }
 
