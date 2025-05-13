@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  public_Key: '38610a3dfe5d1bb4758924e29798a5fa',
-  hash: '5446a679cdc4eb0b76c5241eac819e8c',
-  url: `https://gateway.marvel.com:443/v1/public/characters`,
+  urlGetway: 'process.env['NG_APP_URL_GETWAY']',
+  public_Key: 'process.env['NG_APP_PUBLIC_KEY']',
+  hash: 'process.env['NG_APP_HASH']'
 };
