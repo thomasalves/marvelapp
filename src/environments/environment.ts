@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   public_Key: '',
   hash: '',
-  url: `https://gateway.marvel.com:443/v1/public/characters`,
+  urlGetway: `https://gateway.marvel.com:443/v1/public/characters`,
 
 };
 
